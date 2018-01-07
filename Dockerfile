@@ -18,5 +18,4 @@ EXPOSE 27005/udp
 EXPOSE 27020/udp
 EXPOSE 26901/udp
 WORKDIR /opt/steam/css
-CMD ["./srcds_run", "-game", "cstrike", "+exec", "server.cfg", "+hostname", "\"$CSS_HOSTNAME\"", "+sv_password", "\"$CSS_PASSWORD\"", "+rcon_password", "\"$RCON_PASSWORD\"", "+map", "de_dust2"]
-
+CMD ["./srcds_run", "-game", "cstrike", "+exec", "server.cfg", "+hostname", "echo ${CSS_HOSTNAME}", "+sv_password", "echo ${CSS_PASSWORD}", "+rcon_password", "echo ${RCON_PASSWORD}", "+map", "de_dust2"]
