@@ -1,4 +1,5 @@
 FROM ubuntu:latest
+ADD ./files/supervisor.sh /
 RUN apt-get update \
     && apt-get install -y wget lib32gcc1 lib32tinfo5 unzip \
     && wget -O /tmp/steamcmd_linux.tar.gz http://media.steampowered.com/installer/steamcmd_linux.tar.gz \
@@ -6,7 +7,11 @@ RUN apt-get update \
     && tar -C /opt/steam -xvzf /tmp/steamcmd_linux.tar.gz \
     && rm /tmp/steamcmd_linux.tar.gz \
     && mkdir -p /opt/steam/css \
-    && opt/steam/steamcmd.sh +login anonymous +force_install_dir /opt/steam/css/ +app_update 232330 validate +quit
+    && opt/steam/steamcmd.sh +login anonymous +force_install_dir /opt/steam/css/ +app_update 232330 validate +quit \
+    && chmod +x /supervisor.sh \
+    && apt-get remove -y unzip \
+    && useradd -ms /bin/bash steam \
+    && chown -R steam:steam /opt/steam/css
 ADD ./files/cfg/ /opt/steam/css/cstrike/cfg
 ENV CSS_HOSTNAME Counter-Strike Source Dedicated Server
 ENV CSS_PASSWORD ""
@@ -17,5 +22,6 @@ EXPOSE 1200
 EXPOSE 27005/udp
 EXPOSE 27020/udp
 EXPOSE 26901/udp
-WORKDIR /opt/steam/css
-CMD ["./srcds_run", "-game", "cstrike", "+exec", "server.cfg", "+hostname", "$CSS_HOSTNAME", "+sv_password", "$CSS_PASSWORD", "+rcon_password", "$RCON_PASSWORD", "+map", "de_dust2"]
+VOLUME ["/opt/steam/css/cstrike/cfg"]
+USER steam
+CMD ["/supervisor.sh"]
