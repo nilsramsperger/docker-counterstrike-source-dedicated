@@ -15,5 +15,4 @@ ENV CSS_HOSTNAME Counter-Strike Source Dedicated Server
 ENV CSS_PASSWORD ""
 ENV RCON_PASSWORD somepassword
 VOLUME ["/var/css/cfg"]
-USER steam
 CMD ["/supervisor.sh"]
