@@ -13,3 +13,8 @@ Change the ENV variables `RCON_PASSWORD`, `CSS_PASSWORD` and `CSS_HOSTNAME` as y
 The server's config folder is persisted in the named volume `css-dedicated-config`.
 So if you want to change settings, just tap into the container, change the files within config and restart.
 The changes won't get lost.
+
+## Integrated mods
+* SourceMod 1.9.0
+* MetaModSource 1.10.0
+* DamageReport
