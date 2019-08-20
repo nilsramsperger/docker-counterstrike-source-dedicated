@@ -26,10 +26,10 @@ install() {
     echo "Installing CS:S Dedicated Server"
     /opt/steam/steamcmd.sh +login anonymous +force_install_dir /opt/steam/css/ +app_update 232330 validate +quit
     mv /tmp/cfg /opt/steam/css/cstrike/cfg
-    mv /tmp/gem_damage_report.smx addons/sourcemod/plugins
     cd /opt/steam/css/cstrike
     tar zxvf /tmp/mmsource-1.10.7-git970-linux.tar.gz
     tar zxvf /tmp/sourcemod-1.9.0-git6281-linux.tar.gz
+    mv /tmp/gem_damage_report.smx addons/sourcemod/plugins
     chown -R steam:steam /opt/steam/css
     echo "Installation done"
 }
