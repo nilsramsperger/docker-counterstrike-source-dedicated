@@ -10,7 +10,7 @@ RUN apt-get update \
     && chmod +x /supervisor.sh \
     && apt-get remove -y unzip \
     && useradd -ms /bin/bash steam
-ADD ./files/cfg/ /tmp
+ADD ./files/ /tmp
 ENV CSS_HOSTNAME Counter-Strike Source Dedicated Server
 ENV CSS_PASSWORD ""
 ENV RCON_PASSWORD somepassword
