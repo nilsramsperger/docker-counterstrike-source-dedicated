@@ -2,12 +2,12 @@
 
 loadConfig() {
     echo "Loading config"
-    yes | cp -rfa /var/css/cfg/. /opt/steam/css/cfg/
+    yes | cp -rfa /var/css/cfg/. /opt/steam/css/cstrike/cfg/
 }
 
 storeConfig() {
     echo "Storing config"
-    yes | cp -rfa /opt/steam/css/cfg/. /var/css/cfg/
+    yes | cp -rfa /opt/steam/css/cstrike/cfg/. /var/css/cfg/
 }
 
 shutdown() {
