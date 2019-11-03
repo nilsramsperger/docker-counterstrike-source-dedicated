@@ -45,6 +45,6 @@ trap term_handler SIGTERM
 loadConfig
 echo "Starting CS:S Dedicated Server"
 cd /opt/steam/css
-su steam -c "./srcds_run -game cstrike +exec server.cfg +hostname $CSS_HOSTNAME +sv_password $CSS_PASSWORD +rcon_password $RCON_PASSWORD +map de_dust2" & wait ${!}
+su steam -c "./srcds_run -game cstrike -port $PORT +exec server.cfg +hostname $CSS_HOSTNAME +sv_password $CSS_PASSWORD +rcon_password $RCON_PASSWORD +map de_dust2" & wait ${!}
 echo "CS:S dedicated died"
 shutdown
