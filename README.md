@@ -4,7 +4,7 @@ This image provides a plain CS:S dedicated server.
 ## System Requirements
 The server is not contained by the image, to keep it small.
 It will download and install on first start of the container.
-You will need at least **2GB** of HDD space, for the container to inflate.
+You will need at least **3GB** of HDD space, for the container to inflate.
 
 ## Usage
 To start the container run `docker run -d --init --name css-dedicated --restart unless-stopped -v css-dedicated-config:/var/css/cfg -p 27015:27015 -p 27015:27015/udp -e RCON_PASSWORD=mypassword -e CSS_PASSWORD=mypassword -e CSS_HOSTNAME=myservername -e PORT=27015 nilsramsperger/counterstrike-source-dedicated`.
