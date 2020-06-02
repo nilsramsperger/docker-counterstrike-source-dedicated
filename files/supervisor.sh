@@ -31,6 +31,7 @@ install() {
     tar zxvf /tmp/sourcemod-1.9.0-git6281-linux.tar.gz
     mv /tmp/gem_damage_report.smx addons/sourcemod/plugins
     chown -R steam:steam /opt/steam/css
+    ln -s /opt/steam/linux32 /home/steam/.steam/sdk32
     echo "Installation done"
 }
 
