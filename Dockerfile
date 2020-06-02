@@ -10,6 +10,8 @@ RUN apt-get update \
     && chmod +x /supervisor.sh \
     && apt-get remove -y unzip wget \
     && useradd -ms /bin/bash steam \
+    && mkdir -p /home/steam/.steam \
+    && chown -R steam:steam /home/steam \
     && locale-gen en_US.UTF-8
 ADD ./files/ /tmp
 ENV CSS_HOSTNAME Counter-Strike Source Dedicated Server
