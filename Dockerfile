@@ -1,7 +1,7 @@
 FROM ubuntu:19.10
 ADD ./files/supervisor.sh /
 RUN apt-get update \
-    && apt-get install -y wget lib32gcc1 lib32stdc++6 unzip locales \
+    && apt-get install -y wget lib32gcc1 lib32stdc++6 libcurl4 unzip locales \
     && wget -O /tmp/steamcmd_linux.tar.gz http://media.steampowered.com/installer/steamcmd_linux.tar.gz \
     && mkdir -p /opt/steam \
     && mkdir -p /var/css/cfg \
